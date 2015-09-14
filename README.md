@@ -17,7 +17,7 @@ download dependencies and prepare the relevant javascript files. If you open
 
 ## Demo
 
-([live demo](http://dinofancellu.com/demo/scalajsRactive/))
+[live demo](http://dinofancellu.com/demo/scalajsRactive/)
 
 ## Development
 
