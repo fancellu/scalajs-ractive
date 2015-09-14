@@ -12,8 +12,10 @@ To get started, run `sbt ~fastOptJS` in this example project.
 Obviously you need to have [SBT](http://www.scala-sbt.org/) installed. 
 
 This should
-download dependencies and prepare the relevant javascript files. If you open
-`localhost:12345/target/scala-2.11/classes/index-dev.html` in your browser, it will show you a sample app, doing some Ajax calls, animation, SVG, binding etc.
+download dependencies and prepare the relevant javascript files. It then kicks off a web server to serve the html and JS files.
+
+If you open
+[localhost:12345/target/scala-2.11/classes/index-dev.html](localhost:12345/target/scala-2.11/classes/index-dev.html) in your browser, it will show you a sample app, doing some Ajax calls, animation, SVG, binding etc.
 
 ## Demo
 
@@ -28,6 +30,7 @@ You then just have to refresh the page to see the new version. Hopefully having 
 
 Run `sbt fullOptJS` and open up `index-opt.html` for an optimized version
 of the final application, useful for final publication. You may well need to copy over `index-dev.html` to get your latest changes. Be sure to refer to the correct JS as well, as it will have a different name than the fast compiled version. e.g.
+
 	`<script type="text/javascript" src="../ractive-js-scala-js-example-opt.js"></script>`
 
 ## Eclipse integration
