@@ -9,7 +9,7 @@ The bindings for Ractive.js are in `com.felstar.scalajs.ractive`
 
 To get started, run `sbt ~fastOptJS` in this example project. This should
 download dependencies and prepare the relevant javascript files. If you open
-`localhost:12345/target/scala-2.11/classes/index-dev.html` in your browser, it will show you a sample app, doing some Ajax calls, animation, SVG, binding etc ([live demo](http://www.dinofancellu.com/demo/scalajsRactive2/)).
+`localhost:12345/target/scala-2.11/classes/index-dev.html` in your browser, it will show you a sample app, doing some Ajax calls, animation, SVG, binding etc ([live demo](http://dinofancellu.com/demo/scalajsRactive/)).
 
 ## Development
 
