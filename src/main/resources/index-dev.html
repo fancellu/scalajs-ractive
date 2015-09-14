@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Scala.js+Ractive.js sample application!</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.0.2/css/hover-min.css" rel="stylesheet" media="all">  
+</head>
+<body style="margin: 0px">
+
+<!--  ractive start-->
+<div id='container2' style="float:right"></div>
+<div id='container'></div>
+<script id='template' type='text/ractive'>
+	<label><input type="checkbox" checked="{{checkbox}}"/>Show buttons</label>
+	{{#if checkbox}}		
+		<button class="button hvr-wobble-bottom" on-click='decrement'>Decrement!</button>
+		<button class="button hvr-wobble-bottom" on-click='increment'>Increment!</button>
+		<button class="button hvr-wobble-bottom" on-click='animate'>Animate!</button>
+	{{/if}}
+    <p>Hello, {{name}}!</p>
+    <p>Some data {{format(width)}}<BR/><input id="width" type="range" min="0" max="400" value="{{width}}"/></p>
+
+<div style="float:left">
+ <input placeholder='City Name' value='{{city}}' lazy="true"><BR/>
+ <b>Weather in {{city}}:</b>
+ <ul>
+  <li><b>Country </b>{{country}}</li>
+  <li><b>Weather </b>{{weather}}</li>
+  <li><b>Temp </b>{{min}} - {{max}}</li>
+  <li><b>Humidity </b>{{humid}}%</li>
+ </ul>
+</div>
+<div style="float:left;width:80%" class="svg-wrapper">
+
+ <svg width="100%" height="300px">
+  <style>
+
+  circle
+  {
+   fill:white;
+   stroke:black
+  }
+
+  circle:hover
+  {
+    r: 5;
+  }
+</style>
+	
+  <!-- gradient - higher temperatures are redder, lower temperatures are bluer -->
+        <defs>
+          <linearGradient id='gradient' x2='0' y2='100%' gradientUnits='userSpaceOnUse'>
+            <stop offset='0%' stop-color='rgb(255,0,0)' />
+            <stop offset='100%' stop-color='rgb(0,0,255)' />
+          </linearGradient>
+        </defs>
+  <line style="stroke:rgb(85,85,85);stroke-width:1" x1='0' y1='{{ zeroY}}' x2='{{lineWidth}}' y2='{{ zeroY }}'/>
+ {{#with dates}}
+
+  <polygon fill='url(#gradient)' stroke='url(#gradient)' style="fill-opacity:0.3" points='{{svgPath}}'/>
+{{#lineWidth}}
+	<text x="{{lineWidth/2}}" y="25" text-anchor="middle" font-size="30px" >Forecast for next 7 days</text>
+{{/lineWidth}}
+	{{#each dates}}
+		{{#with high}}
+            <g class='marker' transform='translate({{ x }},{{ y }})'>
+              <circle r='2'/>
+              <text y='-10'>{{ format(value) }}</text>
+            </g>
+	   {{/with}}
+		{{#with low}}
+            <g class='marker' transform='translate({{ x }},{{ y }})'>
+              <circle r='2'/>
+              <text y='-10'>{{ format(value) }}</text>
+            </g>
+	   {{/with}}     
+		{{#with dateString}}
+			<g class='marker' transform='translate({{ x }},{{ clientHeight }})'>              
+              <text y='-10'>{{ value}}</text>
+            </g>
+		{{/with}}		      
+    {{/each}}
+  {{/with}}
+</svg>
+</div>
+
+<svg width="100%"> 
+  <g transform='translate(30,30)'>        
+    <rect width='{{width}}' height='{{height}}' style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)"/>
+	<text fill="white" text-anchor="middle" x='{{width/2}}' y='{{height/2}}'>
+      Area={{area}}
+    </text>
+  </g>
+</svg>
+</script>
+
+<script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script> 
+<div id="mydiv"></div>
+
+<!--  ractive end -->
+
+<script type="text/javascript" src="../ractive-js-scala-js-example-fastopt.js"></script>
+<script>
+    
+var jstimes2=function(x){
+	return x*2;
+};
+
+    example.T1().main(document.getElementById('mydiv'));
+</script>
+
+</body>
+</html>
