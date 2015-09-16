@@ -1,3 +1,4 @@
+![scalajs-ractive Logo](http://felstar.com/projects/scalajs-ractive/img/scalajs-ractive-cliff.png)
 # scalajs-ractive
 
 ## Scala.js bindings for Ractive.js and an example application 
