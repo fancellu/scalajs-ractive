@@ -11,6 +11,7 @@
 <div id='container2' style="float:right"></div>
 <div id='container'></div>
 <script id='template' type='text/ractive'>
+    <div id='myDiv2'></div>
 	<label><input type="checkbox" checked="{{checkbox}}"/>Show buttons</label>
 	{{#if checkbox}}		
 		<button class="button hvr-wobble-bottom" on-click='decrement'>Decrement!</button>
@@ -95,7 +96,6 @@
 </script>
 
 <script src='http://cdn.ractivejs.org/latest/ractive.min.js'></script> 
-<div id="mydiv"></div>
 
 <!--  ractive end -->
 
@@ -106,7 +106,7 @@ var jstimes2=function(x){
 	return x*2;
 };
 
-    example.T1().main(document.getElementById('mydiv'));
+    example.T1().main();
 </script>
 
 </body>

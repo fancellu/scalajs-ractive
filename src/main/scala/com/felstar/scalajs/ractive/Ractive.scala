@@ -16,6 +16,7 @@ import js.annotation.JSName
   
   @js.native
    class Ractive extends js.Object {
+    // instance methods
     def this(obj: js.Any) = this()
     def add(keypath:String,number:Int=1):Promise=js.native
     def animate(keypath:String,value:js.Any,options:js.Any):Promise=js.native
@@ -31,15 +32,15 @@ import js.annotation.JSName
     def fire(eventName:String,args:js.Any*):Unit=js.native
     def get():js.Any=js.native
     def get(keypath:String):js.Any=js.native
-    def observe(keypath:String, callback:js.ThisFunction,options:js.Any):js.Any=js.native
-    def observe(keypath:String, callback:js.ThisFunction):js.Any=js.native
-    def observeOnce(keypath:String, callback:js.Any,options:js.Any):js.Any=js.native
-    def observeOnce(keypath:String, callback:js.Any):js.Any=js.native
+    def observe(keypath:String, callback:js.ThisFunction,options:js.Any):Cancellable=js.native
+    def observe(keypath:String, callback:js.ThisFunction):Cancellable=js.native
+    def observeOnce(keypath:String, callback:js.Any,options:js.Any):Cancellable=js.native
+    def observeOnce(keypath:String, callback:js.Any):Cancellable=js.native
     def off(eventName:String,handler:js.Any):js.Any=js.native
     def off(eventName:String):js.Any=js.native
-    def on(eventName:String,handler:js.ThisFunction):js.Any=js.native
-    def on(obj:js.Any):js.Any=js.native
-    def once(eventName:String,handler:js.Any):js.Any=js.native
+    def on(eventName:String,handler:js.ThisFunction):Cancellable=js.native
+    def on(obj:js.Any):Cancellable=js.native
+    def once(eventName:String,handler:js.Any):Cancellable=js.native
     def pop(keypath:String):Promise=js.native
     def push(keypath:String, value:js.Any*):Promise=js.native
     def render(target:js.Any):js.Any=js.native
@@ -59,5 +60,31 @@ import js.annotation.JSName
     def update(keypath:String):js.Any=js.native
     def updateModel():js.Any=js.native
     def updateModel(keypath:String,cascade:Boolean=false):js.Any=js.native
+    // instance properties
+    val container:js.Any=js.native
+    val nodes:js.Dictionary[org.scalajs.dom.raw.Element]=js.native
+    val transitions:js.Array[js.Function]=js.native
+    val parent:js.Any=js.native
+    val partials:js.Array[String]=js.native
+    val root:js.Any=js.native
   }
 
+  @js.native
+   class Cancellable extends js.Object {
+    def cancel:Unit =js.native      
+   }
+  
+   @js.native
+    object Ractive extends js.Object{    
+     def extend(obj:js.Any):Ractive=js.native
+     def getNodeInfo(node:org.scalajs.dom.raw.Element):NodeInfo=js.native     
+     def parse(template:String):js.Any=js.native
+     def parse(template:String,options:js.Any):js.Any=js.native
+    }
+   
+   @js.native
+   class NodeInfo extends js.Object {    
+    val ractive:Ractive =js.native
+    val keypath:String =js.native
+    val indices:js.Array[js.Any] =js.native      
+   }

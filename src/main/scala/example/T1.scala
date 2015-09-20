@@ -11,7 +11,7 @@ import com.felstar.scalajs.ractive._
 object T1 extends {
 
   @JSExport
-  def main(target: dom.html.Div) = {
+  def main() = {
 
     implicit class ToDynamicArray(dyn:js.Dynamic){      
       def toArray=dyn.asInstanceOf[js.Array[js.Dynamic]]
@@ -104,6 +104,8 @@ object T1 extends {
         )
     val ra = new Ractive(rvals)
     
+    println(js.JSON.stringify(ra.nodes)) // to show we can get all elements with an id    
+    
     def weatherNow(city: String): Unit = {
       if (city == "") return
 
@@ -156,7 +158,7 @@ object T1 extends {
     //    ra.onR("increment",_.add("width")) // same with pimp    
     //    ra.onR("decrement", _.subtract("width"))
 
-    // in one go, TODO handle cancellable
+    // in one go
     val cancellable = ra.on {
       literal(
         increment = toRactiveHandler(_.add("width")),
