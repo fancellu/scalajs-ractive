@@ -10,6 +10,8 @@ import com.felstar.scalajs.ractive._
 @JSExport
 object T1 extends {
 
+  val weatherkey="4ef01dbbb326222af5ec69053f824bde"
+  
   @JSExport
   def main() = {
 
@@ -36,7 +38,7 @@ object T1 extends {
       
       if (city.toString == "") return;
      
-      val fXHR = Ajax.get(s"http://api.openweathermap.org/data/2.5/forecast/daily?q=$city&cnt=7")
+      val fXHR = Ajax.get(s"http://api.openweathermap.org/data/2.5/forecast/daily?q=$city&cnt=7&appid=$weatherkey")
 
       fXHR.onSuccess {
         case xhr =>
@@ -109,7 +111,7 @@ object T1 extends {
     def weatherNow(city: String): Unit = {
       if (city == "") return
 
-      val fXHR = Ajax.get(s"http://api.openweathermap.org/data/2.5/weather?q=$city")
+      val fXHR = Ajax.get(s"http://api.openweathermap.org/data/2.5/weather?q=$city&appid=$weatherkey")
 
       fXHR.onSuccess {
         case xhr =>
