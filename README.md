@@ -3,6 +3,8 @@
 
 ## Scala.js bindings for Ractive.js and an example application 
 
+[![Build Status](https://travis-ci.org/fancellu/scalajs-ractive.svg?branch=master)](https://travis-ci.org/fancellu/scalajs-ractive)
+
 Example app showing the use of [Scala.js](http://www.scala-js.org/) with [Ractive.js](http://www.ractivejs.org/) 
 The bindings for Ractive.js are in `com.felstar.scalajs.ractive`
 
