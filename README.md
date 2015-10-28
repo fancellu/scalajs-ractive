@@ -3,6 +3,8 @@
 
 ## Scala.js bindings for Ractive.js and an example application 
 
+To use as a library, just pull in from
+
 [https://jitpack.io/#fancellu/scalajs-ractive](https://jitpack.io/#fancellu/scalajs-ractive)
 
 [![Build Status](https://travis-ci.org/fancellu/scalajs-ractive.svg?branch=master)](https://travis-ci.org/fancellu/scalajs-ractive)
